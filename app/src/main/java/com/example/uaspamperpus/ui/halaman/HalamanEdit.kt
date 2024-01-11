@@ -1,5 +1,6 @@
 package com.example.uaspamperpus.ui.halaman
 
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
@@ -11,6 +12,7 @@ import com.example.uaspamperpus.R
 import com.example.uaspamperpus.model.EditViewModel
 import com.example.uaspamperpus.model.PenyediaViewModel
 import com.example.uaspamperpus.navigasi.DestinasiNavigasi
+import kotlinx.coroutines.launch
 
 object ItemEditDestination : DestinasiNavigasi {
     override val route= "item_edit"
@@ -37,4 +39,17 @@ fun ItemEditScreen(
             )
         },
         modifier = modifier
-    ){}
+    ) { innerPadding ->
+        EntrySewaBody(
+            uiStateSewa = viewModel.sewaUiState,
+            onSewaValueChange = viewModel::updateUiState,
+            onSaveClick = {
+                coroutineScope.launch {
+                    viewModel.updateSiswa()
+                    navigateBack()
+                }
+            },
+            modifier = Modifier.padding(innerPadding)
+        )
+    }
+}
