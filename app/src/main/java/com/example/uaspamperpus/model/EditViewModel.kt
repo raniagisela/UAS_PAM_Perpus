@@ -28,4 +28,22 @@ class EditViewModel(
                 .toUiStateSewa(true)
         }
     }
+    suspend fun updateSiswa(){
+        if (validasiInput(sewaUiState.detailSewa)){
+            repositoriSewa.updateSewa(sewaUiState.detailSewa.toSewa())
+        }
+        else{
+            println("Data tidak valid")
+        }
+    }
+    fun updateUiState (detailSewa : DetailSewa){
+        sewaUiState =
+            UIStateSewa(detailSewa = detailSewa, isEntryValid = validasiInput(detailSewa))
+    }
+    private fun validasiInput(uiState: DetailSewa = sewaUiState.detailSewa):Boolean{
+        return with(uiState){
+            nama.isNotBlank()&&alamat.isNotBlank()&&telpon.isNotBlank()&&judul_buku.isNotBlank()&&lama_meminjam.isNotBlank()&&tanggal_kembali.isNotBlank()
+        }
+    }
+}
 
