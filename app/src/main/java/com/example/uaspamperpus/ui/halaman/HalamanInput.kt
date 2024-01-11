@@ -7,8 +7,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
+import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
@@ -105,4 +107,69 @@ fun FormInputSewa(
     modifier: Modifier,
     onValueChange : (DetailSewa) ->Unit = {},
     enabled:Boolean = true
-){}
+){
+    Column (
+        modifier = modifier,
+        verticalArrangement = Arrangement.spacedBy(16.dp)
+    ){
+        OutlinedTextField(
+            value = detailSewa.nama,
+            onValueChange ={onValueChange(detailSewa.copy(nama = it))},
+            label = { Text(stringResource(id = R.string.nama)) },
+            singleLine = true,
+            modifier = Modifier.fillMaxWidth(),
+            enabled = enabled
+        )
+        OutlinedTextField(
+            value = detailSewa.alamat,
+            onValueChange ={onValueChange(detailSewa.copy(alamat = it))},
+            label = { Text(stringResource(R.string.alamat)) },
+            singleLine = true,
+            modifier = Modifier.fillMaxWidth(),
+            enabled = enabled
+        )
+        OutlinedTextField(
+            value = detailSewa.telpon,
+            onValueChange ={onValueChange(detailSewa.copy(telpon = it))},
+            label = { Text(stringResource(R.string.telpon)) },
+            singleLine = true,
+            modifier = Modifier.fillMaxWidth(),
+            enabled = enabled
+        )
+        OutlinedTextField(
+            value = detailSewa.judul_buku,
+            onValueChange ={onValueChange(detailSewa.copy(judul_buku = it))},
+            label = { Text(stringResource(R.string.jdl)) },
+            singleLine = true,
+            modifier = Modifier.fillMaxWidth(),
+            enabled = enabled
+        )
+        OutlinedTextField(
+            value = detailSewa.lama_meminjam,
+            onValueChange ={onValueChange(detailSewa.copy(lama_meminjam = it))},
+            label = { Text(stringResource(R.string.lama)) },
+            singleLine = true,
+            modifier = Modifier.fillMaxWidth(),
+            enabled = enabled
+        )
+        OutlinedTextField(
+            value = detailSewa.tanggal_kembali,
+            onValueChange ={onValueChange(detailSewa.copy(tanggal_kembali = it))},
+            label = { Text(stringResource(R.string.kembali)) },
+            singleLine = true,
+            modifier = Modifier.fillMaxWidth(),
+            enabled = enabled
+        )
+        if (enabled) {
+            Text(
+                text = stringResource(id = R.string.required_field),
+                modifier = Modifier.padding(start = 16.dp)
+            )
+        }
+        Divider(
+            thickness = 8.dp,
+            modifier = Modifier.padding(bottom = 16.dp)
+
+        )
+    }
+}
