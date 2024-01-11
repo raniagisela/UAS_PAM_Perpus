@@ -1,5 +1,6 @@
 package com.example.uaspamperpus.ui.halaman
 
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
@@ -16,6 +17,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.uaspamperpus.R
+import com.example.uaspamperpus.data.Sewa
 import com.example.uaspamperpus.model.PenyediaViewModel
 import com.example.uaspamperpus.model.SewaViewModel
 import com.example.uaspamperpus.navigasi.DestinasiNavigasi
@@ -58,4 +60,22 @@ fun SewaScreen(
                 )
             }
         },
-    ) {}
+    ) {
+            innerPadding ->
+        val uiStateSewa by viewModel.sewaUiState.collectAsState()
+        BodySewa(
+            itemSewa = uiStateSewa.listSewa,
+            modifier = Modifier
+                .padding(innerPadding)
+                .fillMaxWidth(),
+            onsewaClick = onDetailClick
+        )
+    }
+}
+
+@Composable
+fun BodySewa(
+    itemSewa : List<Sewa>,
+    modifier: Modifier = Modifier,
+    onsewaClick: (Int)->Unit = {}
+){
