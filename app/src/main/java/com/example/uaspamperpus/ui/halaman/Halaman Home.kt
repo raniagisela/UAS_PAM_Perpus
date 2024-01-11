@@ -36,6 +36,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.uaspamperpus.R
 import com.example.uaspamperpus.navigasi.DestinasiNavigasi
+import com.example.uaspamperpus.navigasi.SewaTopAppBar
 
 object DestinasiHome: DestinasiNavigasi {
     override val route = "home"

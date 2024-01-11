@@ -30,7 +30,7 @@ import com.example.uaspamperpus.ui.halaman.ItemEditScreen
 import com.example.uaspamperpus.ui.halaman.SewaScreen
 
 @Composable
-fun PerpusApp(navController: NavHostController = rememberNavController()) {
+fun PerputakaanApp(navController: NavHostController = rememberNavController()) {
     HostNavigasi(navController = navController)
 }
 
