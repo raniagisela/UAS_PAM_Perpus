@@ -6,6 +6,9 @@ import androidx.lifecycle.viewModelScope
 import com.example.uaspamperpus.repositori.RepositoriSewa
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.stateIn
 
 class DetailsViewModel(
     savedStateHandle: SavedStateHandle,
@@ -29,3 +32,8 @@ class DetailsViewModel(
         private const val TIMEOUT_MILLIS = 5_000L
     }
 }
+
+data class ItemDetailsUiState(
+    val outOfStock : Boolean = true,
+    val detailSewa: DetailSewa = DetailSewa(),
+)
