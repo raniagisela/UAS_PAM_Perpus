@@ -25,3 +25,8 @@ class InputViewModel(private val repositoriSewa: RepositoriSewa): ViewModel() {
         }
     }
 }
+
+data class UIStateSewa(
+    val detailSewa : DetailSewa = DetailSewa(),
+    val isEntryValid : Boolean = false
+)
