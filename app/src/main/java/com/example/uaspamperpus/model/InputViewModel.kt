@@ -14,4 +14,14 @@ class InputViewModel(private val repositoriSewa: RepositoriSewa): ViewModel() {
             nama.isNotBlank()&&alamat.isNotBlank()&&telpon.isNotBlank()&&judul_buku.isNotBlank()&&lama_meminjam.isNotBlank()&&tanggal_kembali.isNotBlank()
         }
     }
+    fun updateUiState(detailSewa: DetailSewa){
+        uiStateSewa =
+            UIStateSewa(detailSewa = detailSewa, isEntryValid = validasiInput(detailSewa))
+    }
+
+    suspend fun saveSewa(){
+        if (validasiInput()){
+            repositoriSewa.insertSewa(uiStateSewa.detailSewa.toSewa())
+        }
+    }
 }
