@@ -8,6 +8,8 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Edit
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
@@ -27,6 +29,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.uaspamperpus.R
+import com.example.uaspamperpus.data.Sewa
 import com.example.uaspamperpus.model.DetailsViewModel
 import com.example.uaspamperpus.model.ItemDetailsUiState
 import com.example.uaspamperpus.model.PenyediaViewModel
@@ -111,6 +114,68 @@ private fun ItemDetailsBody(
                 },
                 onDeleteCancel = {deleteConfirmationRequired = false},
                 modifier = Modifier.padding(16.dp)
+            )
+        }
+    }
+}
+
+@Composable
+fun ItemDetails(
+    sewa: Sewa, modifier: Modifier =Modifier
+){
+    Card (
+        modifier = modifier, colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.primaryContainer,
+            contentColor = MaterialTheme.colorScheme.onPrimaryContainer
+        )
+    ){
+        Column (
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp)
+        ){
+            ItemDetailsRow(
+                labelResId = R.string.nama,
+                itemDetail = sewa.nama,
+                modifier = Modifier.padding(
+                    horizontal = 16.dp
+                )
+            )
+            ItemDetailsRow(
+                labelResId = R.string.alamat,
+                itemDetail = sewa.alamat,
+                modifier = Modifier.padding(
+                    horizontal = 16.dp
+                )
+            )
+            ItemDetailsRow(
+                labelResId = R.string.telpon,
+                itemDetail = sewa.telpon,
+                modifier = Modifier.padding(
+                    horizontal = 16.dp
+                )
+            )
+            ItemDetailsRow(
+                labelResId = R.string.jdl,
+                itemDetail = sewa.judul_buku,
+                modifier = Modifier.padding(
+                    horizontal = 16.dp
+                )
+            )
+            ItemDetailsRow(
+                labelResId = R.string.lama,
+                itemDetail = sewa.lama_meminjam,
+                modifier = Modifier.padding(
+                    horizontal = 16.dp
+                )
+            )
+            ItemDetailsRow(
+                labelResId = R.string.kembali,
+                itemDetail = sewa.tanggal_kembali,
+                modifier = Modifier.padding(
+                    horizontal = 16.dp
+                )
             )
         }
     }
