@@ -1,4 +1,4 @@
-package com.example.uaspamperpus
+package com.example.uaspamperpus.repositori
 
 import com.example.uaspamperpus.data.Sewa
 import kotlinx.coroutines.flow.Flow
