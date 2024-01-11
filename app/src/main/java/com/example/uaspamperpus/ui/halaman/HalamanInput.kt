@@ -14,8 +14,10 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.uaspamperpus.R
+import com.example.uaspamperpus.model.DetailSewa
 import com.example.uaspamperpus.model.InputViewModel
 import com.example.uaspamperpus.model.PenyediaViewModel
+import com.example.uaspamperpus.model.UIStateSewa
 import com.example.uaspamperpus.navigasi.DestinasiNavigasi
 import kotlinx.coroutines.launch
 
@@ -62,3 +64,11 @@ fun InputSewaScreen(
         )
     }
 }
+
+@Composable
+fun EntrySewaBody(
+    uiStateSewa: UIStateSewa,
+    onSewaValueChange: (DetailSewa) -> Unit,
+    onSaveClick: () -> Unit,
+    modifier: Modifier = Modifier
+){}
