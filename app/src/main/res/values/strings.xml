@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">UAS PAM Perpus</string>
+    <string name="back">Back</string>
+    <string name="sewa">Sewa</string>
+    <string name="input">Input Sewa</string>
+    <string name="desc">Tidak ada Data Sewa</string>
+    <string name="nama">Nama Penyewa*</string>
+    <string name="alamat">Alamat Penyewa*</string>
+    <string name="telpon">Telpon Penyewa*</string>
+    <string name="jdl">Judul Buku*</string>
+    <string name="lama">Lama Meminjam*</string>
+    <string name="kembali">Tanggal Kembali*</string>
+    <string name="required_field">* required fields</string>
+    <string name="submit">Submit</string>
+    <string name="input_data">Input Data</string>
+    <string name="detail_sewa">Detail Sewa</string>
+    <string name="edit_sewa">Edit Sewa</string>
+    <string name="yes">Ya</string>
+    <string name="no">Tidak</string>
+    <string name="delete">Hapus</string>
+    <string name="attention">Perhatian</string>
 </resources>
