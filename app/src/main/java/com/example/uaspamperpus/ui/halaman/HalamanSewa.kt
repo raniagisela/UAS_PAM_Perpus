@@ -1,8 +1,10 @@
 package com.example.uaspamperpus.ui.halaman
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -102,3 +104,10 @@ fun BodySewa(
         }
     }
 }
+
+@Composable
+fun ListSewa(
+    itemSewa : List<Sewa>,
+    modifier: Modifier = Modifier,
+    onItemClick:(Sewa) ->Unit
+){
