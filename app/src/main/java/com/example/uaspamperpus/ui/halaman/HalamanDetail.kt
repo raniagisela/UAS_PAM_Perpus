@@ -1,7 +1,10 @@
 package com.example.uaspamperpus.ui.halaman
 
+import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
@@ -26,6 +29,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.uaspamperpus.R
@@ -178,5 +182,16 @@ fun ItemDetails(
                 )
             )
         }
+    }
+}
+
+@Composable
+private fun ItemDetailsRow(
+    @StringRes labelResId : Int, itemDetail:String, modifier: Modifier = Modifier
+){
+    Row (modifier = modifier){
+        Text(text = stringResource(labelResId))
+        Spacer(modifier = Modifier.weight(1f))
+        Text(text = itemDetail, fontWeight = FontWeight.Bold)
     }
 }
