@@ -97,3 +97,12 @@ fun EntrySewaBody(
         }
     }
 }
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun FormInputSewa(
+    detailSewa: DetailSewa,
+    modifier: Modifier,
+    onValueChange : (DetailSewa) ->Unit = {},
+    enabled:Boolean = true
+){}
