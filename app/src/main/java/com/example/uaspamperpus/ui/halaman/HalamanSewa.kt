@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -111,3 +112,21 @@ fun ListSewa(
     modifier: Modifier = Modifier,
     onItemClick:(Sewa) ->Unit
 ){
+    LazyColumn(modifier = Modifier){
+        items(items = itemSewa, key = {it.id}){
+                rent ->
+            DataSewa(
+                sewa = rent,
+                modifier = Modifier
+                    .padding(8.dp)
+                    .clickable { onItemClick(rent) }
+            )
+        }
+    }
+}
+
+@Composable
+fun DataSewa(
+    sewa: Sewa,
+    modifier: Modifier = Modifier
+){}
