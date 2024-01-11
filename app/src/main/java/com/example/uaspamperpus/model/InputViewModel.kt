@@ -30,3 +30,13 @@ data class UIStateSewa(
     val detailSewa : DetailSewa = DetailSewa(),
     val isEntryValid : Boolean = false
 )
+
+data class DetailSewa (
+    val id : Int = 0,
+    val nama : String = "",
+    val alamat : String = "",
+    val telpon : String = "",
+    val judul_buku: String = "",
+    val lama_meminjam: String = "",
+    val tanggal_kembali: String = ""
+)
