@@ -1,5 +1,9 @@
 package com.example.uaspamperpus.ui.halaman
 
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.TopAppBarDefaults
@@ -13,6 +17,7 @@ import com.example.uaspamperpus.R
 import com.example.uaspamperpus.model.InputViewModel
 import com.example.uaspamperpus.model.PenyediaViewModel
 import com.example.uaspamperpus.navigasi.DestinasiNavigasi
+import kotlinx.coroutines.launch
 
 object DestinasiInput : DestinasiNavigasi{
     override val route = "Input"
@@ -39,5 +44,21 @@ fun InputSewaScreen(
                 scrollBehavior = scrollBehavior
             )
         }
-    ) {}
+    ) {
+            innerPadding ->
+        EntrySewaBody(
+            uiStateSewa = viewModel.uiStateSewa,
+            onSewaValueChange = viewModel::updateUiState,
+            onSaveClick = {
+                coroutineScope.launch {
+                    viewModel.saveSewa()
+                    navigateBack()
+                }
+            },
+            modifier = Modifier
+                .padding(innerPadding)
+                .verticalScroll(rememberScrollState())
+                .fillMaxWidth()
+        )
+    }
 }
